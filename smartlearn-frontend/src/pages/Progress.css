@@ -1,0 +1,453 @@
+/* ============================================
+   SmartLearn - Progress Page (Enhanced)
+   src/pages/Progress.css
+   ============================================ */
+
+.progress-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 12px;
+}
+
+/* ── Loading ─────────────────────────────────── */
+.prog-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  gap: 16px;
+  color: #9CA3AF;
+}
+
+.prog-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(108, 99, 255, 0.15);
+  border-top-color: #6C63FF;
+  border-radius: 50%;
+  animation: prog-spin 0.8s linear infinite;
+}
+
+@keyframes prog-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Header ──────────────────────────────────── */
+.prog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.prog-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: #1E1B4B;
+  margin-bottom: 4px;
+  letter-spacing: -0.5px;
+}
+
+.prog-subtitle {
+  color: #9CA3AF;
+  font-size: 0.92rem;
+}
+
+/* ── Stat Cards (5 in a row) ─────────────────── */
+.prog-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+}
+
+.prog-stat-card {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 18px;
+  padding: 20px 16px;
+  text-align: center;
+  border: 1px solid rgba(108, 99, 255, 0.08);
+  box-shadow: 0 4px 20px rgba(108, 99, 255, 0.06);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.prog-stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 18px 18px 0 0;
+}
+
+.prog-stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(108, 99, 255, 0.12);
+}
+
+.prog-stat-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin: 0 auto 12px;
+}
+
+.prog-stat-value {
+  font-size: 1.9rem;
+  font-weight: 800;
+  font-family: 'Syne', sans-serif;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.prog-stat-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 4px;
+}
+
+.prog-stat-sub {
+  font-size: 0.7rem;
+  color: #9CA3AF;
+}
+
+/* ── Chart Cards (shared) ────────────────────── */
+.prog-chart-card {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 18px;
+  padding: 20px;
+  border: 1px solid rgba(108, 99, 255, 0.08);
+  box-shadow: 0 4px 20px rgba(108, 99, 255, 0.06);
+}
+
+.prog-full-width {
+  width: 100%;
+}
+
+.prog-chart-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  color: #1E1B4B;
+}
+
+.prog-chart-header h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0;
+  font-family: 'Syne', sans-serif;
+}
+
+.prog-chart-header svg {
+  font-size: 1.1rem;
+  color: #6C63FF;
+}
+
+.prog-chart-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 160px;
+  color: #9CA3AF;
+  font-size: 0.9rem;
+}
+
+/* ── Charts Row ──────────────────────────────── */
+.prog-charts-row {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 16px;
+}
+
+/*.prog-wide { /* no extra needed  }*/
+
+/* ── Custom Tooltip ──────────────────────────── */
+.prog-custom-tooltip {
+  background: white;
+  border: 1px solid rgba(108, 99, 255, 0.15);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 0.82rem;
+  color: #1E1B4B;
+  box-shadow: 0 8px 24px rgba(108, 99, 255, 0.12);
+}
+
+.prog-tooltip-label {
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: #1E1B4B;
+}
+
+/* ── Pie Legend ──────────────────────────────── */
+.prog-pie-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.prog-pie-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: #6B7280;
+}
+
+.prog-pie-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.prog-pie-count {
+  margin-left: auto;
+  font-weight: 700;
+  color: #374151;
+}
+
+/* ── Bottom Row ──────────────────────────────── */
+.prog-bottom-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+
+.prog-activity-card {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 18px;
+  padding: 20px;
+  border: 1px solid rgba(108, 99, 255, 0.08);
+  box-shadow: 0 4px 20px rgba(108, 99, 255, 0.06);
+}
+
+/* ── Activity List ───────────────────────────── */
+.prog-activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.prog-activity-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background: rgba(108, 99, 255, 0.03);
+  border-radius: 10px;
+  border: 1px solid rgba(108, 99, 255, 0.06);
+  transition: background 0.2s;
+}
+
+.prog-activity-item:hover {
+  background: rgba(108, 99, 255, 0.06);
+}
+
+.prog-color-bar {
+  width: 4px;
+  height: 36px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.prog-activity-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.prog-activity-title {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #1E1B4B;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.prog-activity-meta {
+  font-size: 0.72rem;
+  color: #9CA3AF;
+  margin-top: 2px;
+}
+
+.prog-activity-time {
+  font-size: 0.7rem;
+  color: #9CA3AF;
+  white-space: nowrap;
+}
+
+/* ── Deadline Badges ─────────────────────────── */
+.prog-deadline-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.prog-deadline-badge.urgent {
+  background: rgba(239, 68, 68, 0.1);
+  color: #EF4444;
+  border: 1px solid rgba(239, 68, 68, 0.25);
+}
+
+.prog-deadline-badge.soon {
+  background: rgba(245, 158, 11, 0.1);
+  color: #F59E0B;
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.prog-deadline-badge.safe {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10B981;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+/* ── Priority Breakdown ──────────────────────── */
+.prog-priority-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.prog-priority-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.prog-priority-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: #6B7280;
+  width: 65px;
+  flex-shrink: 0;
+  font-weight: 500;
+}
+
+.prog-priority-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.prog-priority-bar-bg {
+  flex: 1;
+  height: 8px;
+  background: rgba(108, 99, 255, 0.08);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.prog-priority-bar-fill {
+  height: 100%;
+  border-radius: 10px;
+  min-width: 4px;
+}
+
+.prog-priority-count {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #374151;
+  width: 20px;
+  text-align: right;
+}
+
+/* ── Completion Rate Circle ──────────────────── */
+.prog-rate-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(108, 99, 255, 0.08);
+}
+
+.prog-rate-circle {
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.prog-rate-circle svg {
+  width: 80px;
+  height: 80px;
+}
+
+.prog-rate-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  line-height: 1.2;
+}
+
+.prog-rate-number {
+  display: block;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #6C63FF;
+  font-family: 'Syne', sans-serif;
+}
+
+.prog-rate-label {
+  display: block;
+  font-size: 0.6rem;
+  color: #9CA3AF;
+}
+
+.prog-rate-desc {
+  font-size: 0.75rem;
+  color: #9CA3AF;
+  text-align: center;
+}
+
+/* ── Responsive ──────────────────────────────── */
+@media (max-width: 1200px) {
+  .prog-stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .prog-bottom-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .prog-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .prog-charts-row {
+    grid-template-columns: 1fr;
+  }
+  .prog-bottom-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .progress-page {
+    padding-top: 8px;
+    gap: 14px;
+  }
+  .prog-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+}
