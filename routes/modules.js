@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const LearningModule = require('../models/LearningModule');
-const auth = require('../middleware/authmiddleware'); // your existing JWT middleware
+const auth = require('../middleware/authMiddleware'); // your existing JWT middleware
 
 // ─────────────────────────────────────────
 // GET /api/modules — get all accessible modules
