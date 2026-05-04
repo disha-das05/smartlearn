@@ -21,6 +21,7 @@ const progressRoutes = require("./routes/progress");
 connectDB();
 
 const app = express();
+app.set('trust proxy',1);
 
 // ─── Security Middleware ──────────────────────────────────────────────────────
 
@@ -60,6 +61,7 @@ app.use((req, res, next) => {
   sanitize(req.params);
   next();
 });
+
 
 // ─── Rate Limiters ───────────────────────────────────────────────────────────
 
