@@ -30,11 +30,11 @@ app.use(helmet());
 
 // CORS — restrict to your frontend origin in production
 app.use(
-  cors(//{
-   // origin: process.env.FRONTEND_URL || "http://localhost:5173",
-  //  methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
-   // allowedHeaders: ["Content-Type", "x-auth-token"],
-  //}
+  cors({
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+    allowedHeaders: ["Content-Type", "x-auth-token"],
+  }
  )
 );
 
