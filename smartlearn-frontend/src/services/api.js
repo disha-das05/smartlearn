@@ -64,19 +64,19 @@ export const authAPI = {
 // ============================================
 export const subjectsAPI = {
   // Get all subjects
-  getAll: () => api.get('/subjects'),
+  getAll: () => api.get('/api/subjects'),
 
   // Get single subject
-  getOne: (id) => api.get(`/subjects/${id}`),
+  getOne: (id) => api.get(`/api/subjects/${id}`),
 
   // Create new subject
-  create: (subjectData) => api.post('/subjects', subjectData),
+  create: (subjectData) => api.post('/api/subjects', subjectData),
 
   // Update subject
-  update: (id, subjectData) => api.put(`/subjects/${id}`, subjectData),
+  update: (id, subjectData) => api.put(`/api/subjects/${id}`, subjectData),
 
   // Delete subject
-  delete: (id) => api.delete(`/subjects/${id}`),
+  delete: (id) => api.delete(`/api/subjects/${id}`),
 };
 
 // ============================================
@@ -84,28 +84,28 @@ export const subjectsAPI = {
 // ============================================
 export const tasksAPI = {
   // Get all tasks (with optional filters)
-  getAll: (filters = {}) => api.get('/tasks', { params: filters }),
+  getAll: (filters = {}) => api.get('/api/tasks', { params: filters }),
 
   // Get pending tasks only
-  getPending: () => api.get('/tasks/pending'),
+  getPending: () => api.get('/api/tasks/pending'),
 
   // Get single task
-  getOne: (id) => api.get(`/tasks/${id}`),
+  getOne: (id) => api.get(`/api/tasks/${id}`),
 
   // Create new task
-  create: (taskData) => api.post('/tasks', taskData),
+  create: (taskData) => api.post('/api/tasks', taskData),
 
   // Update task
-  update: (id, taskData) => api.put(`/tasks/${id}`, taskData),
+  update: (id, taskData) => api.put(`/api/tasks/${id}`, taskData),
 
   // Mark task as complete
-  complete: (id) => api.patch(`/tasks/${id}/complete`),
+  complete: (id) => api.patch(`/api/tasks/${id}/complete`),
 
   // Update task status
-  updateStatus: (id, status) => api.patch(`/tasks/${id}/status`, { status }),
+  updateStatus: (id, status) => api.patch(`/api/tasks/${id}/status`, { status }),
 
   // Delete task
-  delete: (id) => api.delete(`/tasks/${id}`),
+  delete: (id) => api.delete(`/api/tasks/${id}`),
 };
 
 // ============================================
@@ -113,16 +113,16 @@ export const tasksAPI = {
 // ============================================
 export const plannerAPI = {
   // Generate a new study plan
-  generate: (data) => api.post('/planner/generate', data),
+  generate: (data) => api.post('/api/planner/generate', data),
 
   // Get current study plan
-  getPlan: () => api.get('/planner'),
+  getPlan: () => api.get('/api/planner'),
 
   // Get today's study sessions
-  getToday: () => api.get('/planner/today'),
+  getToday: () => api.get('/api/planner/today'),
 
   // Delete study plan
-  deletePlan: () => api.delete('/planner'),
+  deletePlan: () => api.delete('/api/planner'),
 };
 
 export default api;
