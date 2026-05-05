@@ -70,7 +70,7 @@ const Progress = () => {
   const fetchStats = async () => {
     try {
       setLoading(true);
-      const res = await api.get('/progress/stats');
+      const res = await api.get('api/progress/stats');
       setStats(res.data);
     } catch (err) {
       console.error('Error fetching progress:', err);
