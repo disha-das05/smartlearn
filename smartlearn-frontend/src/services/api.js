@@ -125,4 +125,16 @@ export const plannerAPI = {
   deletePlan: () => api.delete('/api/planner'),
 };
 
+// AI API CALLS
+export const aiAPI = {
+  chat: (data) => api.post('/api/ai/chat', data),
+};
+
+// PROGRESS API CALLS
+export const progressAPI = {
+  getAll: () => api.get('/api/progress'),
+  create: (data) => api.post('/api/progress', data),
+  update: (id, data) => api.put(`/api/progress/${id}`, data),
+  delete: (id) => api.delete(`/api/progress/${id}`),
+};
 export default api;
