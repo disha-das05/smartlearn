@@ -132,7 +132,7 @@ export const aiAPI = {
 
 // PROGRESS API CALLS
 export const progressAPI = {
-  getAll: () => api.get('/api/progress'),
+  getAll: () => api.get('/api/progress/stats'),
   create: (data) => api.post('/api/progress', data),
   update: (id, data) => api.put(`/api/progress/${id}`, data),
   delete: (id) => api.delete(`/api/progress/${id}`),
