@@ -16,7 +16,7 @@ import { subjectsAPI } from '../services/api';
 import axios from 'axios';
 import './Modules.css';
 
-const API = import.meta.env.VITE_API_URL/api;
+const API = import.meta.env.VITE_API_URL + '/api';
 const getToken = () => localStorage.getItem('token');
 const authHeaders = () => ({ 'x-auth-token': getToken() });
 
